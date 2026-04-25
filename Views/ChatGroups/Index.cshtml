@@ -1,0 +1,16 @@
+﻿@model List<SecureCommunicationApp.Models.ChatGroup>
+
+<h2>Chat Groups</h2>
+
+<a class="btn btn-primary mb-3" href="/ChatGroups/Create">Create Group</a>
+
+<div class="row">
+    @foreach (var g in Model)
+    {
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <h5>@g.GroupName</h5>
+            </div>
+        </div>
+    }
+</div>

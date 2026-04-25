@@ -1,0 +1,16 @@
+﻿@model SecureCommunicationApp.Models.ChatGroup
+
+<h2>Create Chat Group</h2>
+
+<form method="post" class="w-50">
+
+    <div class="mb-3">
+        <label>Group Name</label>
+        <input asp-for="GroupName" class="form-control" placeholder="Enter group name" />
+    </div>
+
+    <button class="btn btn-success">Create</button>
+
+    <a href="/ChatGroups" class="btn btn-secondary">Back</a>
+
+</form>

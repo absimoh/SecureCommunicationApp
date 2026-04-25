@@ -1,0 +1,27 @@
+﻿@model SecureCommunicationApp.Models.Message
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<h2>Send Message</h2>
+
+<form method="post" class="w-50">
+
+    <div class="mb-2">
+        <input asp-for="Content" class="form-control" placeholder="Message..." />
+    </div>
+
+    <div class="mb-2">
+        <label>Sender</label>
+        <select asp-for="SenderId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.Users, "UserId", "FullName"))">
+        </select>
+    </div>
+
+    <div class="mb-2">
+        <label>Receiver</label>
+        <select asp-for="ReceiverId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.Users, "UserId", "FullName"))">
+        </select>
+    </div>
+
+    <button class="btn btn-primary">Send</button>
+</form>

@@ -1,0 +1,26 @@
+﻿@model List<SecureCommunicationApp.Models.User>
+
+<h2 class="mb-3">Users Management</h2>
+
+<a class="btn btn-primary mb-3" href="/Users/Create">+ Add User</a>
+
+<div class="row">
+    @foreach (var user in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>@user.FullName</h5>
+                    <p>@user.Email</p>
+
+                    <span class="badge bg-info">@user.Role</span>
+
+                    <hr />
+
+                    <a class="btn btn-sm btn-warning" href="/Users/Edit/@user.UserId">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="/Users/Delete/@user.UserId">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

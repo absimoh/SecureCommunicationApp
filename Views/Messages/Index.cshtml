@@ -1,0 +1,19 @@
+﻿@model List<SecureCommunicationApp.Models.Message>
+
+<h2>Messages</h2>
+
+<a class="btn btn-primary mb-3" href="/Messages/Create">Send Message</a>
+
+<div class="list-group">
+    @foreach (var msg in Model)
+    {
+        <div class="list-group-item">
+            <b>From:</b> @msg.SenderId |
+            <b>To:</b> @msg.ReceiverId
+            <br />
+            <span>@msg.Content</span>
+            <br />
+            <small class="text-muted">@msg.SentDate</small>
+        </div>
+    }
+</div>
