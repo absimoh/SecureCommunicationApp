@@ -1,40 +1,22 @@
-using Microsoft.EntityFrameworkCore;
-using SecureCommunicationApp.Data;
+var builder = WebApplication.CreateBuilder(args);
 
-namespace SecureCommunicationApp
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+// Add services
+builder.Services.AddControllersWithViews();
 
-            builder.Services.AddControllersWithViews();
-            options.UseSqlite("Data Source=app.db");
-            //builder.Services.AddDbContext<AppDbContext>(options =>
-              //  options.UseSqlServer(
-                //    builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=app.db"));
 
-            var app = builder.Build();
+var app = builder.Build();
 
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-            app.UseHttpsRedirection();
-            app.UseRouting();
-            app.UseAuthorization();
+app.UseRouting();
 
-            app.MapStaticAssets();
+app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-                .WithStaticAssets();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            app.Run();
-        }
-    }
-}
+app.Run();
