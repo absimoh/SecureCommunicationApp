@@ -1,0 +1,18 @@
+﻿@model SecureCommunicationApp.Models.GroupMember
+
+<h2>Remove Member</h2>
+
+<h4>Are you sure you want to remove this member?</h4>
+
+<div class="mb-3">
+    <strong>User:</strong> @Model.User?.FullName <br />
+    <strong>Group:</strong> @Model.ChatGroup?.GroupName <br />
+    <strong>Role:</strong> @Model.Role
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="GroupMemberId" />
+
+    <button type="submit" class="btn btn-danger">Remove</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

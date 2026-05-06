@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SecureCommunicationApp.Models.User>
+
+<h2>Users</h2>
+
+<a asp-action="Create" class="btn btn-success mb-2">Create New User</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.Email</td>
+                <td>@item.Role</td>
+                <td>@item.CreatedAt</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.UserId" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.UserId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

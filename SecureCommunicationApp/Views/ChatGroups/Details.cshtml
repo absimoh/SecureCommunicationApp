@@ -1,0 +1,11 @@
+﻿@model SecureCommunicationApp.Models.ChatGroup
+
+<h2>Chat Group Details</h2>
+
+<div class="mb-3">
+    <strong>Group Name:</strong> @Model.GroupName <br />
+    <strong>Description:</strong> @Model.Description <br />
+    <strong>Created At:</strong> @Model.CreatedAt
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

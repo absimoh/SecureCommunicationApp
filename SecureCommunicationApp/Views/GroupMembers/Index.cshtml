@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SecureCommunicationApp.Models.GroupMember>
+
+<h2>Group Members</h2>
+
+<a asp-action="Create" class="btn btn-success mb-2">Add Member</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Group</th>
+            <th>Role</th>
+            <th>Joined At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User?.FullName</td>
+                <td>@item.ChatGroup?.GroupName</td>
+                <td>@item.Role</td>
+                <td>@item.JoinedAt</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.GroupMemberId" class="btn btn-danger btn-sm">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

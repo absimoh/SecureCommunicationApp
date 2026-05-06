@@ -1,0 +1,33 @@
+﻿@model SecureCommunicationApp.Models.GroupMember
+
+<h2>Add Member to Group</h2>
+
+<form asp-action="Create" method="post" class="w-50">
+
+    <div class="mb-2">
+        <label asp-for="UserId"></label>
+        <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label asp-for="ChatGroupId"></label>
+        <select asp-for="ChatGroupId" class="form-control" asp-items="ViewBag.ChatGroupId"></select>
+        <span asp-validation-for="ChatGroupId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label asp-for="Role"></label>
+        <select asp-for="Role" class="form-control"
+                asp-items="Html.GetEnumSelectList<GroupRole>()">
+        </select>
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

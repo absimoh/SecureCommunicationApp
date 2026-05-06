@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SecureCommunicationApp.Models.Message>
+
+<h2>Messages</h2>
+
+<a asp-action="Create" class="btn btn-success mb-2">Send New Message</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Content</th>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Sent Date</th>
+            <th>Is Read</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Content</td>
+                <td>@item.Sender?.FullName</td>
+                <td>@item.Receiver?.FullName</td>
+                <td>@item.SentDate</td>
+                <td>@item.IsRead</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MessageId" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.MessageId" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.MessageId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

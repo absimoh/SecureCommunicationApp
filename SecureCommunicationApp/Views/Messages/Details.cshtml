@@ -1,0 +1,13 @@
+﻿@model SecureCommunicationApp.Models.Message
+
+<h2>Message Details</h2>
+
+<div class="mb-3">
+    <strong>Content:</strong> @Model.Content <br />
+    <strong>Sender:</strong> @Model.Sender?.FullName <br />
+    <strong>Receiver:</strong> @Model.Receiver?.FullName <br />
+    <strong>Sent Date:</strong> @Model.SentDate <br />
+    <strong>Is Read:</strong> @Model.IsRead
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>
