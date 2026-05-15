@@ -6,5 +6,4 @@ obj/
 *.log
 *.db
 *.sqlite
-.vs/
 *.vsidx
